@@ -61,6 +61,11 @@ class Phonebook extends React.Component {
                 .then((res) => {
                     this.getAll();
                 })
+            this.setState({
+                name: '',
+                phone_number: '',
+                handset: ''
+            })
         } else {
             Axios.put(`http://localhost:8000/api/${id}`, {
                 name: this.state.name,
@@ -96,24 +101,26 @@ class Phonebook extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
-                    <form onSubmit={(e) => this.submit(e, this.state.id)}>
-                        <div className="col s3">
+                <div className="nav-wrapper">
+                    <form onSubmit={(e) => this.submit(e, this.state.id)} className="hide-on-med-and-down" id="form">
+                        <div className="name">
                             <input onChange={(e) => this.nameChange(e)} value={this.state.name} placeholder="Name"></input>
                         </div>
-                        <div className="col s3">
+                        <div className="phone">
                             <input onChange={(e) => this.phone_numberChange(e)} value={this.state.phone_number} placeholder="Phone Number"></input>
                         </div>
 
 
-                        <div className="col s3">
+                        <div className="handset">
                             <Select onChange={(e) => this.handsetChange(e)} options={this.state.handsetOptions} placeholder="Select Handset" />
                         </div>
-                        <div className="col s3">
-                            <button className="waves-effect waves-light btn">Save</button>
+                        <div className="col s3 m4">
+                            <button className="waves-effect waves-light btn right blue darken-3">
+                                Save
+                            </button>
                         </div>
                     </form>
-                    <table>
+                    <table className="row">
                         <tbody>
                             <tr>
                                 <td>NAME</td>
@@ -126,10 +133,10 @@ class Phonebook extends React.Component {
                                     <td>{post.phone_number}</td>
                                     <td>{post.handset}</td>
                                     <td>
-                                        <button className="waves-effect waves-light btn" onClick={(e) => this.getOne(post)}>Edit</button>
+                                        <button className="waves-effect waves-light btn blue darken-3" onClick={(e) => this.getOne(post)}>Edit</button>
                                     </td>
                                     <td>
-                                        <button className="waves-effect waves-light btn" onClick={(e) => this.delete(post.id)}>Delete</button>
+                                        <button className="waves-effect waves-light btn blue darken-3" onClick={(e) => this.delete(post.id)}>Delete</button>
                                     </td>
                                 </tr>
                             )}

@@ -12,7 +12,7 @@
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper blue darken-3">
             <a href="#" class="brand-logo">Laravel React Phone Number Taker</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="sass.html">Voip Coding Challenge</a></li>

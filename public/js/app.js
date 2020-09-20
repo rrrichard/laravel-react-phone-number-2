@@ -73697,6 +73697,11 @@ var Phonebook = /*#__PURE__*/function (_React$Component) {
         }).then(function (res) {
           _this4.getAll();
         });
+        this.setState({
+          name: '',
+          phone_number: '',
+          handset: ''
+        });
       } else {
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("http://localhost:8000/api/".concat(id), {
           name: this.state.name,
@@ -73736,13 +73741,15 @@ var Phonebook = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
+        className: "nav-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: function onSubmit(e) {
           return _this5.submit(e, _this5.state.id);
-        }
+        },
+        className: "hide-on-med-and-down",
+        id: "form"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col s3"
+        className: "name"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: function onChange(e) {
           return _this5.nameChange(e);
@@ -73750,7 +73757,7 @@ var Phonebook = /*#__PURE__*/function (_React$Component) {
         value: this.state.name,
         placeholder: "Name"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col s3"
+        className: "phone"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: function onChange(e) {
           return _this5.phone_numberChange(e);
@@ -73758,7 +73765,7 @@ var Phonebook = /*#__PURE__*/function (_React$Component) {
         value: this.state.phone_number,
         placeholder: "Phone Number"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col s3"
+        className: "handset"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onChange: function onChange(e) {
           return _this5.handsetChange(e);
@@ -73766,19 +73773,21 @@ var Phonebook = /*#__PURE__*/function (_React$Component) {
         options: this.state.handsetOptions,
         placeholder: "Select Handset"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col s3"
+        className: "col s3 m4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "waves-effect waves-light btn"
-      }, "Save"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "NAME"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "PHONE NUMBER"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "HANDSET")), this.state.posts.map(function (post) {
+        className: "waves-effect waves-light btn right blue darken-3"
+      }, "Save"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "NAME"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "PHONE NUMBER"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "HANDSET")), this.state.posts.map(function (post) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
           key: post.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, post.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, post.phone_number), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, post.handset), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "waves-effect waves-light btn",
+          className: "waves-effect waves-light btn blue darken-3",
           onClick: function onClick(e) {
             return _this5.getOne(post);
           }
         }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "waves-effect waves-light btn",
+          className: "waves-effect waves-light btn blue darken-3",
           onClick: function onClick(e) {
             return _this5["delete"](post.id);
           }
